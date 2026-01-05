@@ -1,0 +1,46 @@
+name: Repomix (Reusable)
+
+on:
+  workflow_call:
+    inputs:
+      config_path:
+        required: false
+        type: string
+        default: repomix.config.json
+      output_dir:
+        required: false
+        type: string
+        default: repomix
+
+jobs:
+  repomix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Repomix
+        run: |
+          npx repomix --config "${{ inputs.config_path }}"
+
+      - name: Commit Repomix output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git status --porcelain "${{ inputs.output_dir }}" | grep .; then
+            git add "${{ inputs.output_dir }}"
+            git commit -m "chore: update Repomix snapshot"
+            git push
+          else
+            echo "No Repomix changes"
+          fi

@@ -1,7 +1,14 @@
 {
   "outputDir": "repomix",
 
-  "formats": ["markdown", "json"],
+  "formats": {
+    "markdown": {
+      "output": "directory"
+    },
+    "json": {
+      "output": "directory"
+    }
+  }
 
   "depth": "full",
 
@@ -10,7 +17,8 @@
     "scripts",
     "lib",
     "app",
-    "README.md"
+    "README.md",
+    "."
   ],
 
   "exclude": [

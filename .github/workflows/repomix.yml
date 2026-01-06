@@ -39,7 +39,11 @@ jobs:
           cat repomix.config.json
           echo "============================="
 
-          npx repomix --config "${{ inputs.config_path }}"
+
+          npx repomix \
+            --config "${{ inputs.config_path }}" \
+            --format markdown \
+            --output-dir repomix
 
       - name: Commit Repomix output
         run: |

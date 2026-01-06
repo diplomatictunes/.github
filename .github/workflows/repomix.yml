@@ -42,8 +42,8 @@ jobs:
 
           npx repomix \
             --config "${{ inputs.config_path }}" \
-            --format markdown \
-            --output-dir repomix
+            --style markdown \
+            -o repomix/repomix.yml
 
       - name: Commit Repomix output
         run: |

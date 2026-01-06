@@ -24,6 +24,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          
+      - name: Fetch shared Repomix config
+        run: |
+          if [ ! -f repomix.config.json ]; then
+            curl -sSL \
+              https://raw.githubusercontent.com/diplomatictunes/.github/main/repomix/repomix.config.json \
+              -o repomix.config.json
+          fi
 
       - name: Run Repomix
         run: |

@@ -43,7 +43,7 @@ jobs:
           npx repomix \
             --config "${{ inputs.config_path }}" \
             --style markdown \
-            -o repomix/repomix.yml
+            -o repomix/repomix.md
 
       - name: Commit Repomix output
         run: |

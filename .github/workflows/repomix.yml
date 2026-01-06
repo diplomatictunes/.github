@@ -35,6 +35,10 @@ jobs:
 
       - name: Run Repomix
         run: |
+          echo "==== repomix.config.json ===="
+          cat repomix.config.json
+          echo "============================="
+
           npx repomix --config "${{ inputs.config_path }}"
 
       - name: Commit Repomix output

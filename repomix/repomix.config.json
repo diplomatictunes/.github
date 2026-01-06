@@ -1,0 +1,46 @@
+{
+  "outputDir": "repomix",
+
+  "formats": ["markdown", "json"],
+
+  "depth": "full",
+
+  "include": [
+    "src",
+    "scripts",
+    "lib",
+    "app",
+    "README.md"
+  ],
+
+  "exclude": [
+    ".git",
+    "node_modules",
+    "dist",
+    "build",
+    "out",
+    ".svelte-kit",
+    ".next",
+    "__pycache__",
+    ".venv",
+    "venv",
+    "repomix"
+  ],
+
+  "respectGitignore": true,
+
+  "collapseGeneratedFiles": true,
+
+  "maxFileSizeKb": 500,
+
+  "sort": {
+    "files": "path",
+    "sections": "stable"
+  },
+
+  "metadata": {
+    "generatedBy": "repomix",
+    "purpose": "automated repo snapshot",
+    "audience": "human + llm"
+  }
+}
